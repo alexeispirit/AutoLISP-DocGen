@@ -1,0 +1,60 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>ncs-list.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>ncs-list.lsp</h1>
+            <h2>(list-join-to-string strlist splitter)</h2>
+            <p class=text>Join list of strings into string</p>
+                <span class=arg>strlist</span><br/>
+                <span class=text>list of strings</span><br/>
+                <span class=arg>splitter</span><br/>
+                <span class=text>delimiter</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Joined string</p>
+            <h2>(list-remove-duplicates lst)</h2>
+            <p class=text>Remove duplicates from list</p>
+                <span class=arg>lst</span><br/>
+                <span class=text>list to proceed</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    cleared list</p>
+            <h2>(list-union list1 list2)</h2>
+            <p class=text>Union list function</p>
+                <span class=arg>list1, list2</span><br/>
+                <span class=text>lists to union</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    united list</p>
+            <h2>(list-intersect list1 list2)</h2>
+            <p class=text>Intersect list function</p>
+                <span class=arg>list1, list2</span><br/>
+                <span class=text>lists to intersect</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    intersected list</p>
+            <h2>(list-substract list1 list2)</h2>
+            <p class=text>Substract list function</p>
+                <span class=arg>list1, list2</span><br/>
+                <span class=text>lists to substract</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    substracted list</p>
+            <h2>(list-xrange xfirst xlast xstep)</h2>
+            <p class=text>Make range of num values</p>
+                <span class=arg>xfirst</span><br/>
+                <span class=text>first range value</span><br/>
+                <span class=arg>xlast</span><br/>
+                <span class=text>last range value (excluded)</span><br/>
+                <span class=arg>xstep</span><br/>
+                <span class=text>range step</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Range list</p>
