@@ -1,9 +1,9 @@
 automatic AutoLISP documentation generator
-
+----------------------------------------------------
 python lispdoc.py <file.lsp>
-
+----------------------------------------------------
 Output: ./file.html
-
+----------------------------------------------------
 in autoLISP source files use following documentation style
 ;;; <LISPDOC>
 ;;; <SUBR>subroutine-name</SUBR>
@@ -19,7 +19,7 @@ in autoLISP source files use following documentation style
 ;;; </LISPDOC>
 
 "\" - acts like <br/> in html
-
+----------------------------------------------------
 for example:
 ;;; <LISPDOC>
 ;;; <SUBR>(my-cool-subr arg1 arg2)</SUBR>
@@ -32,3 +32,5 @@ for example:
   (princ arg1)
   (princ arg2)
   (princ))
+----------------------------------------------------
+Language: Python
