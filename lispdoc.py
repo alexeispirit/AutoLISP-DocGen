@@ -72,20 +72,20 @@ class MarkdownDoc:
             print "Cannot open file"
 
     def header(self):
-        self.markdown.write("# {0}\n".format(self.lspname))
+        self.markdown.write("# {0}\r\n".format(self.lspname))
 
     def subroutine(self,str):
-        self.markdown.write("##{0}\n".format(str))
+        self.markdown.write("##{0}\r\n".format(str))
 
     def description(self,str):
-        self.markdown.write("{0}\n".format(str))
+        self.markdown.write("{0}\r\n".format(str))
 
     def arg(self, str):
         strings = str.split(" - ")
         if len(strings) > 1:
-            return "*{0} - {1}\n".format(strings[0],strings[1])
+            return "*{0} - {1}\r\n".format(strings[0],strings[1])
         else:
-            return "*No arguments\n"
+            return "*No arguments\r\n"
 
     def arg_list(self, strlist):
         for arg in strlist:
@@ -102,11 +102,11 @@ class MarkdownDoc:
             if docstrings.desc:
                 self.description(docstrings.desc[0])
             else:
-                self.desc("No description\n")
+                self.desc("No description\r\n")
             if docstrings.args:
                 self.arg_list(docstrings.args)
             else:
-                self.arg_list(["No arguments\n"])
+                self.arg_list(["No arguments\r\n"])
             if docstrings.ret:
                 self.ret(docstrings.ret[0])
 
