@@ -1,0 +1,161 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>utils-acad.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>utils-acad.lsp</h1>
+            <h2>(acad-version)</h2>
+            <p class=text>Retrives autocad version as float</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Float AutoCAD version number</p>
+            <h2>(acad-object)</h2>
+            <p class=text>Get AutoCAD.Application object pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    AutoCAD.Application pointer</p>
+            <h2>(acad-actdoc)</h2>
+            <p class=text>Get ActiveDocument pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    ActiveDocument pointer</p>
+            <h2>(acad-paperspace doc)</h2>
+            <p class=text>Get PaperSpace pointer</p>
+                <span class=arg>doc</span><br/>
+                <span class=text>activedocument pointer (auto if nil)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    PaperSpace pointer</p>
+            <h2>(acad-modelspace doc)</h2>
+            <p class=text>Get ModelSpace pointer</p>
+                <span class=arg>doc</span><br/>
+                <span class=text>activedocument pointer (auto if nil)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    ModelSpace pointer</p>
+            <h2>(acad-currentspace doc)</h2>
+            <p class=text>Get CurrentSpace pointer</p>
+                <span class=arg>doc</span><br/>
+                <span class=text>activedocument pointer (auto if nil)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Current Paper or Model space pointer</p>
+            <h2>(acad-dump)</h2>
+            <p class=text>Dump vla-object</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    nil</p>
+            <h2>(acad-vlasel)</h2>
+            <p class=text>Get vla-object from entsel</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    vla-object</p>
+            <h2>(acad-entsel)</h2>
+            <p class=text>Entity selection</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    entity</p>
+            <h2>(acad-ent2vla entity)</h2>
+            <p class=text>Get vla-object from entity</p>
+                <span class=arg>entity</span><br/>
+                <span class=text>entity to convert</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    vla-object</p>
+            <h2>(acad-selset-onscreen etype)</h2>
+            <p class=text>Select objects on screen</p>
+                <span class=arg>etype</span><br/>
+                <span class=text>type of entities</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    VLA Selection Set</p>
+            <h2>(acad-selset-universal</h2>
+            <p class=text>Create selection set <br/> with user prompt or selected objects</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Selection Set</p>
+            <h2>(acad-ent-boundingbox entity)</h2>
+            <p class=text>Get entity bounding box coordinates</p>
+                <span class=arg>entity</span><br/>
+                <span class=text>entity to get coords (vla or ent)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of points (min max)</p>
+            <h2>(acad-selset-boundingbox sel)</h2>
+            <p class=text>Get selection set bounding box</p>
+                <span class=arg>sel</span><br/>
+                <span class=text>VLA selection set</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of points (min max)</p>
+            <h2>(acad-list-boundingbox entlist)</h2>
+            <p class=text>Get entities list bounding box</p>
+                <span class=arg>entlist</span><br/>
+                <span class=text>list of entities</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of points (min max)</p>
+            <h2>(acad-boundingbox-blc clist)</h2>
+            <p class=text>Get the bottom left corner coordinates</p>
+                <span class=arg>clist</span><br/>
+                <span class=text>coordinates list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of coordinates</p>
+            <h2>(acad-boundingbox-ulc clist)</h2>
+            <p class=text>Get the upper left corner coordinates</p>
+                <span class=arg>clist</span><br/>
+                <span class=text>coordinates list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of coordinates</p>
+            <h2>(acad-boundingbox-urc clist)</h2>
+            <p class=text>Get the upper right corner coordinates</p>
+                <span class=arg>clist</span><br/>
+                <span class=text>coordinates list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of coordinates</p>
+            <h2>(acad-boundingbox-brc clist)</h2>
+            <p class=text>Get the bottom right corner coordinates</p>
+                <span class=arg>clist</span><br/>
+                <span class=text>coordinates list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of coordinates</p>
+            <h2>(acad-ent-get-layer ent</h2>
+            <p class=text>Get entity layer</p>
+                <span class=arg>ent</span><br/>
+                <span class=text>ENAME entity</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    ENAME layer</p>
+            <h2>(acad-ent-get-color ent</h2>
+            <p class=text>Get entity color</p>
+                <span class=arg>ent</span><br/>
+                <span class=text>ENAME entity</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    INT entity color</p>
+            <h2>(acad-ent-get-ltype ent</h2>
+            <p class=text>Get entity linetype</p>
+                <span class=arg>ent</span><br/>
+                <span class=text>ENAME entity</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    STR entity linetype</p>
+            <h2>(acad-ent-get-lweight ent</h2>
+            <p class=text>Get entity lineweight</p>
+                <span class=arg>ent</span><br/>
+                <span class=text>ENAME entity</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    INT entity lineweight</p>
+            <h2>(acad-objectid vlent)</h2>
+            <p class=text>Get ObjectId inspite of system bit</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    ObjectID</p>
+            <h2>(acad-ownerid vlent)</h2>
+            <p class=text>Get OwnerId inspite of system bit</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    OwnerID</p>
+            <h2>(acad-objectidtoobject doc id)</h2>
+            <p class=text>Get object by ObjectId</p>
+                <span class=arg>doc</span><br/>
+                <span class=text>AutoCAD.Application.Document pointer</span><br/>
+                <span class=arg>id</span><br/>
+                <span class=text>objectId</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    vla-object</p>
+            </div>
+            </body>
+            </html>

@@ -60,10 +60,61 @@ class DocStrings(Docs):
         self.desc = self.get_tag_entry(self.docstring, "DESC")
         self.ret = self.get_tag_entry(self.docstring, "RET")
 
+# Markdown Generator class
+class MarkdownDoc:
+    def __init__(self, filename):
+        self.lspname = filename
+        self.lisp = LispDoc(filename)
+        self.markfile = self.lspname.replace("lsp","markdown")
+        try:
+            self.markdown = open(self.markfile, 'w')
+        except IOError:
+            print "Cannot open file"
+
+    def header(self):
+        self.markdown.write("# {0}\n".format(self.lspname))
+
+    def subroutine(self,str):
+        self.markdown.write("##{0}\n".format(str))
+
+    def description(self,str):
+        self.markdown.write("{0}\n".format(str))
+
+    def arg(self, str):
+        strings = str.split(" - ")
+        if len(strings) > 1:
+            return "*{0} - {1}\n".format(strings[0],strings[1])
+        else:
+            return "*No arguments\n"
+
+    def arg_list(self, strlist):
+        for arg in strlist:
+            self.markdown.write(self.arg(arg))
+
+    def ret(self, str):
+        self.markdown.write("returns: {0}".format(str))
+
+    def generate(self):
+        self.header()
+        for doc in self.lisp.docstrings():
+            docstrings = DocStrings(doc)
+            self.subroutine(docstrings.subr[0])
+            if docstrings.desc:
+                self.description(docstrings.desc[0])
+            else:
+                self.desc("No description\n")
+            if docstrings.args:
+                self.arg_list(docstrings.args)
+            else:
+                self.arg_list(["No arguments\n"])
+            if docstrings.ret:
+                self.ret(docstrings.ret[0])
+
 # HTML Generator class
 class HTMLDoc:
     def __init__(self,filename):
         self.lspname = filename
+        self.lisp = LispDoc(filename)
         self.htmlfile = self.lspname.replace("lsp","html")
         try:
             self.html = open(self.htmlfile, 'w')
@@ -122,22 +173,28 @@ class HTMLDoc:
             </body>
             </html>""")
 
-# Main script
-lsd = LispDoc(sys.argv[1])
-html = HTMLDoc(sys.argv[1])
-html.header()
+    def generate(self):
+        self.header()
+        for doc in self.lisp.docstrings():
+            docstrings = DocStrings(doc)
+            self.subroutine(docstrings.subr[0])
+            if docstrings.desc:
+                self.description(docstrings.desc[0])
+            else:
+                self.desc("No description")
+            if docstrings.args:
+                self.arg_list(docstrings.args)
+            else:
+                self.arg_list(["No arguments"])
+            if docstrings.ret:
+                self.ret(docstrings.ret[0])
+        self.footer()
+            
 
-for doc in lsd.docstrings():
-    docstrings = DocStrings(doc)
-    html.subroutine(docstrings.subr[0])
-    if docstrings.desc:
-        html.description(docstrings.desc[0])
-    else:
-        html.desc("No description")
-    if docstrings.args:
-        html.arg_list(docstrings.args)
-    else:
-        html.arg_list(["No arguments"])
-    if docstrings.ret:
-	html.ret(docstrings.ret[0])
-    html.footer
+# Main script
+if __name__ == '__main__':
+    if sys.argv[1] == '--markdown':
+        doc = MarkdownDoc(sys.argv[2])
+    elif sys.argv[1] == '--html':
+        doc = HTMLDoc(sys.argv[2])
+    doc.generate()

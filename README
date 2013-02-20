@@ -1,8 +1,8 @@
 automatic AutoLISP documentation generator
 ----------------------------------------------------
-python lispdoc.py <file.lsp>
+python lispdoc.py <--markdown|--html> <file.lsp>
 ----------------------------------------------------
-Output: ./file.html
+Output: ./file.html | ./file.markdown
 ----------------------------------------------------
 in autoLISP source files use following documentation style
 ;;; <LISPDOC>
