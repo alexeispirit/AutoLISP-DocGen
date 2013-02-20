@@ -92,7 +92,7 @@ class MarkdownDoc:
             self.markdown.write(self.arg(arg))
 
     def ret(self, str):
-        self.markdown.write("returns: {0}".format(str))
+        self.markdown.write("returns: {0}\r\n".format(str))
 
     def generate(self):
         self.header()
