@@ -83,9 +83,9 @@ class MarkdownDoc:
     def arg(self, str):
         strings = str.split(" - ")
         if len(strings) > 1:
-            return "*{0} - {1}\r\n".format(strings[0],strings[1])
+            return "* {0} - {1}\r\n".format(strings[0],strings[1])
         else:
-            return "*No arguments\r\n"
+            return "* No arguments\r\n"
 
     def arg_list(self, strlist):
         for arg in strlist:
