@@ -4,6 +4,10 @@ python lispdoc.py <--markdown|--html> <file.lsp>
 ----------------------------------------------------
 Output: ./file.html | ./file.markdown
 ----------------------------------------------------
+python markdown-dir.py <directory>
+----------------------------------------------------
+Output: markdown for each lsp file in directory
+
 in autoLISP source files use following documentation style
 ;;; <LISPDOC>
 ;;; <SUBR>subroutine-name</SUBR>

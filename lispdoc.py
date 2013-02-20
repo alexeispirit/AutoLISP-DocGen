@@ -109,6 +109,7 @@ class MarkdownDoc:
                 self.arg_list(["No arguments\r\n"])
             if docstrings.ret:
                 self.ret(docstrings.ret[0])
+        self.markdown.close()
 
 # HTML Generator class
 class HTMLDoc:
@@ -189,6 +190,7 @@ class HTMLDoc:
             if docstrings.ret:
                 self.ret(docstrings.ret[0])
         self.footer()
+        self.html.close()
             
 
 # Main script
