@@ -110,7 +110,7 @@ class MarkdownDoc:
             if docstrings.desc:
                 self.description(docstrings.desc[0])
             else:
-                self.desc("No description\r\n")
+                self.description("No description\r\n")
             if docstrings.args:
                 self.arg_list(docstrings.args)
             else:
